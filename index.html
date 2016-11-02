@@ -125,8 +125,8 @@ var lineFunction = d3.line().x(function(d) { return d.x; }).y(function(d) { retu
 var lineGraph = svgContainer.append("path").attr("d", lineFunction(lineData)).attr("stroke", "blue").attr("stroke-width", 2).attr("fill", "none");
 
 circleRadii = [40, 20, 10];
-function hiD3(hi) {
-	var svgContainer = d3.select(".article").append("svg").attr("width", 600).attr("height", 100);
+function hiD3() {
+	var svgContainer = d3.select(".article").append("svg").attr("width", 200).attr("height", 100);
 	var circles = svgContainer.selectAll("circle")
 						.data(circleRadii)
 						.enter()
