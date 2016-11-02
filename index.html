@@ -118,6 +118,8 @@ dataPath = './R/';
 dataFile = 'euro.csv';
 dataUrl  = dataPath + dataFile;
 
+console.log(dataUrl);
+
 d3.csv(dataUrl, function(data) {
 	console.log(data);
 });
@@ -129,7 +131,10 @@ var lineData = [
 
 var svgContainer = d3.selectAll(".smallBox").append("svg").attr("width", 210).attr("height", 500);
 svgContainer.append('circle').attr('cx', 60).attr('cy', 60).attr('r', 50);
-var lineTest = d3.line().x(funcion(d){return d.x + ',' d.y;})
+var lineTest = d3.line().
+	x(function(d){return d.x;}).
+	y(function(d){return d.y;});
+
 var lineGraph = svgContainer.append("path").attr("d", lineTest(lineData)).attr("stroke", "blue").attr("stroke-width", 2).attr("fill", "none");
 
 circleRadii = [40, 20, 10];
