@@ -119,8 +119,12 @@ dataFile = 'euro.csv';
 dataUrl  = dataPath + dataFile;
 
 console.log(dataUrl);
-
-var getCSV = d3.csv(dataUrl, function(data) {return data;});
+var dataset = [];
+var getCSV = d3.csv(dataUrl, 
+	function(data) 
+	{
+		dataset = data.map(function(data) { return data;} );
+	});
 
 console.log(getCSV);
 
