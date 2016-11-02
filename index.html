@@ -120,9 +120,9 @@ dataUrl  = dataPath + dataFile;
 
 console.log(dataUrl);
 
-d3.csv(dataUrl, function(data) {
-	console.log(data);
-});
+var getCSV = d3.csv(dataUrl, function(data) {return data;});
+
+console.log(getCSV);
 
 var lineData = [ 
 { "x": 20,   "y": 5},  { "x": 30,  "y": 90},
