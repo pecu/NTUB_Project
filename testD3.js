@@ -12,7 +12,7 @@ var getCSV = d3.csv(dataUrl,
 		dataset = data.map(function(data) { return data;} );
 	});
 
-var svgSet = d3.select("featured").append("svg").attr("width", 200).attr("height", 200);
+var svgSet = d3.select(".featured").append("svg").attr("width", 200).attr("height", 200);
 
 var div_data_bind = svgSet.data(dataset);
 
