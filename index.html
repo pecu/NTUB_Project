@@ -6,6 +6,7 @@
 	<title>ZiZurz Website Template</title>
 	<link rel="stylesheet" href="css/style.css" type="text/css">
 	<script src="https://d3js.org/d3.v4.min.js"></script>
+	<script src="testD3.js"></script>	
 </head>
 <body>
 	<div id="header">
@@ -41,61 +42,26 @@
 			<li>
 				<div class="smallBox">
 				</div>
-				<b>best hairstylists</b>
-				<p>
-					Our website templates are created with inspiration, checked for quality and originality and meticulously sliced and coded. What’s more, they’re absolutely free!
 				</p>
 			</li>
 			<li>
 				<div class="smallBox">COMING SOON!!</div>
-				<b>featured hairstyle</b>
-				<p>
-					Our website templates are created with inspiration, checked for quality and originality and meticulously sliced and coded. What’s more, they’re absolutely free!
-				</p>
 			</li>
 			<li>
 				<div class="smallBox">COMING SOON!!</div>
-				<b>hair care</b>
-				<p>
-					Our website templates are created with inspiration, checked for quality and originality and meticulously sliced and coded. What’s more, they’re absolutely free!
-				</p>
 			</li>
 			<li>
 				<div class="smallBox">COMING SOON!!</div>
-				<b>we "hair" you</b>
-				<p>
-					Our website templates are created with inspiration, checked for quality and originality and meticulously sliced and coded. What’s more, they’re absolutely free!
-				</p>
 			</li>
 		</ul>
 		<div>
 			<div class="featured">
-				<h2>featured</h2>
-				<img src="images/featured.jpg" alt="">
-				<h3>Hair, I just meet you</h3>
-				<p>
-					Our website templates are created with inspiration, checked for quality and originality and meticulously sliced and coded. What’s more, they’re absolutely free! You can do a lot with them. You can modify them. You can use them to design websites for clients, so long as you agree with the Terms of Use.
-				</p>
-				<p>
-					You can even remove all our links if you want to. Looking for more templates? Just browse through all our Free Website Templates and find what you’re looking for. But if you don’t find any website template you can use, you can try our Free Web Design service and tell us all about it. Maybe you’re looking for something different, something special.
-				</p>
-				<p>
-					And we love the challenge of doing something different and something special. If you’re experiencing issues and concerns about this website template, join the discussion on our forum and meet other people in the community who share the same interests with you. Version 13.
-				</p>
 			</div>
 			<div class="section">
 				<div class="article">
-					<h2>hairstyle</h2>
-					<p>
-						This website template has been designed by <a href="http://www.freewebsitetemplates.com/">Free Website Templates</a> for you, for free. You can replace all this text with your own text. You can remove any link to our website from this website template, you're free to use this website template without linking back to us. If you're having problems editing this website template, then don't hesitate to ask for help on the <a href="http://www.freewebsitetemplates.com/forums/">Forums</a>.
-					</p>
 					<a href="#">Mike M.</a>
 				</div>
 				<div class="newsletter">
-					<img src="images/skinhead.png" alt="">
-					<p>
-						Are you losing your hair? Let us help you in bringing back your confidence. <span>Call Us at 1800-0000-0000</span>
-					</p>
 				</div>
 			</div>
 		</div>
@@ -103,110 +69,11 @@
 	<div id="footer">
 		<div>
 			<div class="connect">
-				<a href="http://freewebsitetemplates.com/go/twitter/" id="twitter">twitter</a>
-				<a href="http://freewebsitetemplates.com/go/facebook/" id="facebook">facebook</a>
-				<a href="http://freewebsitetemplates.com/go/googleplus/" id="googleplus">googleplus</a>
-				<a href="http://pinterest.com/fwtemplates/" id="pinterest">pinterest</a>
 			</div>
-			<p>
-				&copy; copyright 2023 | all rights reserved.
-			</p>
 		</div>
 	</div>
 <script>
-dataPath = './R/';
-dataFile = 'euro.csv';
-dataUrl  = dataPath + dataFile;
-
-console.log(dataUrl);
-var dataset = [];
-var getCSV = d3.csv(dataUrl, 
-	function(data) 
-	{
-		dataset = data.map(function(data) { return data;} );
-	});
-
-var svgSet = d3.select("body").append("svg").attr("width", 200).attr("height", 200);
-
-var div_data_bind = svgSet.data(dataset);
-
-div_set = div_data_bind.enter().append("div");
-div_data_bind.exit().remove();
-div_set.text(function(d,i) {
- return i + " / " + d.c;
-});
-div_set.style("height", "20px");
-div_set.style("background", "orange");
-div_set.style("margin", "5px");
-div_set.style("width", function(d,i) {
-return (d.x * 10)+"px";
-});
-
-var lineData = [ 
-{ "x": 20,   "y": 5},  { "x": 30,  "y": 90},
-{ "x": 45,  "y": 10}, { "x": 60,  "y": 5},
-{ "x": 10,  "y": 5},  { "x": 100, "y": 30}];
-
-var svgContainer = d3.selectAll(".smallBox").append("svg").attr("width", 210).attr("height", 500);
-svgContainer.append('circle').attr('cx', 60).attr('cy', 60).attr('r', 50);
-var lineTest = d3.line().
-	x(function(d){return d.x;}).
-	y(function(d){return d.y;});
-
-var lineGraph = svgContainer.append("path").attr("d", lineTest(lineData)).attr("stroke", "blue").attr("stroke-width", 2).attr("fill", "none");
-
-circleRadii = [40, 20, 10];
-function hiD3() {
-	var svgContainer = d3.selectAll(".article").append("svg").attr("width", 200).attr("height", 100);
-	var circles = svgContainer.selectAll("circle")
-						.data(circleRadii)
-						.enter()
-						.append("circle");
-	var circleAttributes = circles
-						.attr("cx", 50)
-						.attr("cy", 50)
-						.attr("r", function(d) { return d; })
-						.style("fill", function(d){
-							var returnColor;
-							if (d === 40) { 
-								returnColor = "green";
-							} else if (d === 20) {
-								returnColor = "purple";
-							} else if (d === 10) {
-								returnColor = "red";
-							}
-							return returnColor;
-						});
-}
-
-hiD3();
-
-//The data for our line
-var lineData = [ 
-		{ "x": 1,   "y": 5},  { "x": 20,  "y": 20},
-		{ "x": 40,  "y": 10}, { "x": 60,  "y": 40},
-		{ "x": 80,  "y": 5},  { "x": 100, "y": 60}
-	];
-function lineTest(hi)
-{
-	//This is the accessor function we talked about above
-	var lineFunction = d3.line()
-						.x(function(d) { return d.x; })
-						.y(function(d) { return d.y; });
-
-	//The SVG Container
-	var svgContainer = d3.select(".featured").append("svg")
-						.attr("width", 200)
-						.attr("height", 200);
-
-	//The line SVG Path we draw
-	var lineGraph = svgContainer.append("path")
-						.attr("d", lineFunction(hi))
-						.attr("stroke", "blue")
-						.attr("stroke-width", 2)
-						.attr("fill", "none");
-}
-lineTest(lineData);
+testD3();
 </script>	
 </body>
 </html>
